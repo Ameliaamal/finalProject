@@ -8,8 +8,7 @@ const userService= require('./users_modules/service.js');
 const app= express();
 const port = 3000;
 
-//app.use(express.static(path.join(__dirname,'/client')))
-app.use(express.static(path.join(__dirname,'./css/')))
+app.use(express.static(path.join(__dirname,'/client/public')))
 
 app.engine('handlebars', engine)
 app.set('view engine', 'handlebars');
@@ -18,12 +17,12 @@ app.set('views', '/views/layouts');
 
 app.get('/', (req,res) =>{
     console.log('il a demande lapage index');
-    res.sendFile(path.join(__dirname,'/index.html'));
+    res.sendFile(path.join(__dirname,'/client/index.html'));
 })
 
 app.get('/signupin', (req,res) =>{
     console.log('il a demande la page signup');
-    res.sendFile(path.join(__dirname,'/signupin.html'));
+    res.sendFile(path.join(__dirname,'/client/signupin.html'));
 })
 
 app.post('/signupin', async (req, res) => {
@@ -44,7 +43,7 @@ app.post('/signupin', async (req, res) => {
 
 app.get('/postajob', (req,res) =>{
     console.log('il a demande lapage poste a job');
-    res.sendFile(path.join(__dirname,'/postajob.html'));
+    res.sendFile(path.join(__dirname,'./client/postajob.html'));
 })
 
 app.get('*', (req, res) => {

@@ -9,9 +9,9 @@ const userSchema = new Schema({
     },
     password: String,
     aggreedToterms : Boolean,
-    city : String,
-    aboutyou: String,
-    upload: String,
+    //city : String,
+    //aboutyou: String,
+    //upload: String,
 
   });
 

@@ -49,8 +49,8 @@ const container = document.querySelector(".container"),
     
         if(formDataValidated) {
         
-            window.location.href = "signin.html";
-            const response = await fetch('/signup', {
+            
+            const response = await fetch('/signupin', {
                 method: 'POST', 
                 headers: {
                 'Content-Type': 'application/json'
@@ -71,6 +71,7 @@ const container = document.querySelector(".container"),
             } 
             
         }
+        window.location.href = "signin.html";
     }
     
     const validateSignup = (formValue) => {

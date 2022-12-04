@@ -49,7 +49,11 @@ const container = document.querySelector(".container"),
     
         if(formDataValidated) {
         
+<<<<<<< HEAD
             
+=======
+            window.location.href = "signin.html";
+>>>>>>> d4b6d39dde7abaa2bd41dd724bfc8e5cdc1be1d6
             const response = await fetch('/signupin', {
                 method: 'POST', 
                 headers: {

@@ -51,7 +51,7 @@ const container = document.querySelector(".container"),
          
 
             window.location.href = "signin.html";
-            const response = await fetch('/signupin', {
+            const response = await fetch('/signin', {
                 method: 'POST', 
                 headers: {
                 'Content-Type': 'application/json'
@@ -141,6 +141,33 @@ const container = document.querySelector(".container"),
         console.log(toast)
         toast.style.display = 'none'
     }
+
+    const loginFunction = async (event) => {
+        event.preventDefault()
+        const formData = {
+            email: document.getElementById('emaillogin').value,
+            password: document.getElementById('pwdlogin').value,
+        }
+        const response = await fetch('/signupin', {
+                method: 'POST', 
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData) 
+        });
+        console.log(response)
+        if(response.status === 200) {
+            //window.location = '/dashboard'
+        }
+    }
+    
+    function change_url()
+    {
+       window.history.pushState("object or string", "Title", "/login");
+    }
+
+    const loginButton = document.getElementById("loginBtn");
+    loginButton.addEventListener('click', loginFunction);
     
     const signupButton = document.getElementById("signupBtn")
     signupButton.addEventListener('click', handelSignup) 

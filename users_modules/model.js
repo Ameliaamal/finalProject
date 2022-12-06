@@ -7,7 +7,7 @@ const userSchema = new Schema({
       type: String,
       required:  true,
     },
-    password: String,
+    pass1: String,
     aggreedToterms : Boolean,
     //city : String,
     //aboutyou: String,
@@ -15,6 +15,6 @@ const userSchema = new Schema({
 
   });
 
- const userModel = mongoose.model('users',userSchema)
+ const userModel = mongoose.model('Users',userSchema)
 
- exports.model=userModel;
+ module.exports={userModel};

@@ -40,6 +40,7 @@ app.post('/signupin', async (req, res) => {
         await userService.storeUser(req.body)
     } catch(err) {
         console.log('il veut pas enregistrer user');
+        console.log(err)
         res.status(err.code).json({
             error: err.msg
         })

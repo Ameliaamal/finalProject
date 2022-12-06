@@ -48,7 +48,7 @@ const container = document.querySelector(".container"),
         const formDataValidated = validateSignup(formValue)
     
         if(formDataValidated) {
-        
+         
 
             window.location.href = "signin.html";
             const response = await fetch('/signupin', {
@@ -57,11 +57,11 @@ const container = document.querySelector(".container"),
                 'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    password: formValue.pass1,
+                    pass1: formValue.pass1,
                     name: formValue.name,
                     email: formValue.email,
                     course: formValue.course,
-                    terms: formValue.terms
+                    aggreedToterms: formValue.terms
                 }) 
             });
             console.log(response)

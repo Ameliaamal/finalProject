@@ -1,5 +1,4 @@
-const userModel= require('./model.js')
-
+const {userModel}= require('./model.js')
 
 const storeUser= async (userData) => {
   const user = new userModel(userData)
@@ -8,8 +7,6 @@ const storeUser= async (userData) => {
   }catch(err){
     throw 'failed to create user'
   }
-  }
-
-
+}
 
 module.exports={storeUser}  

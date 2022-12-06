@@ -2,9 +2,13 @@ const {userModel}= require('./model.js');
 const bcrypt = require("bcryptjs");
 const  createToken  = require("./jwt");
 
-const storeUser= async (userData) => {
-  const user = new userModel(userData)
+const storeUser= async (userData) => 
   try{
+    const passwordHash = await bcrypt.hashSync(userData.password, 10);
+    const user = new userModel({
+      ...userData,
+      password,
+    });
     await user.save()
   }catch(err){
     throw 'failed to create user'
@@ -35,8 +39,8 @@ const login = async (userData) => {
     };
   }
   const passwordMatch = await bcrypt.compareSync(
-    userData.password,
-    user.pass1
+    passwordHash,
+    user.password,
   );
   if (!passwordMatch) {
     throw {

@@ -7,7 +7,7 @@ const storeUser= async (userData) =>
     const passwordHash = await bcrypt.hashSync(userData.password, 10);
     const user = new userModel({
       ...userData,
-      password,
+      passwordHash,
     });
     await user.save()
   }catch(err){
